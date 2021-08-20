@@ -16,15 +16,15 @@ jobs:
     - name: uvicorn-gunicorn-fastapi Docker build
       run: make build
       working-directory: infrastructure/docker/uvicorn-gunicorn-fastapi
-    - name: hello-world Setup
+    - name: dummy-api Setup
       run: make setup
-      working-directory: services/hello-world
-    - name: hello-world Check format
+      working-directory: services/dummy-api
+    - name: dummy-api Check format
       run: make check-format
-      working-directory: services/hello-world
-    - name: hello-world Run tests
+      working-directory: services/dummy-api
+    - name: dummy-api Run tests
       run: make test-unit
-      working-directory: services/hello-world
-    - name: hello-world Docker build
+      working-directory: services/dummy-api
+    - name: dummy-api Docker build
       run: make build
-      working-directory: services/hello-world
+      working-directory: services/dummy-api
