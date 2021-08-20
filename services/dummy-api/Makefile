@@ -1,5 +1,5 @@
-SERVICE := hello-world
-PKG := hello_world
+SERVICE := dummy-api
+PKG := dummy_api
 
 setup:
 	pip install --editable .[run,test]
