@@ -8,9 +8,23 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.9
+    - name: Install development dependencies
+      run: pip install --requirement requirements.txt
+    - name: uvicorn-gunicorn-fastapi Check format
+      run: make check-format
+      working-directory: infrastructure/docker/uvicorn-gunicorn-fastapi
+    - name: uvicorn-gunicorn-fastapi Docker build
+      run: make build
+      working-directory: infrastructure/docker/uvicorn-gunicorn-fastapi
     - name: hello-world Setup
       run: make setup
       working-directory: services/hello-world
+    - name: hello-world Check format
+      run: make check-format
+      working-directory: services/hello-world
     - name: hello-world Run tests
       run: make test-unit
+      working-directory: services/hello-world
+    - name: hello-world Docker build
+      run: make build
       working-directory: services/hello-world

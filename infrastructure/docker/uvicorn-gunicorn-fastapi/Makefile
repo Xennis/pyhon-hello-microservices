@@ -6,3 +6,7 @@ build:
 format:
 	black .
 	isort .
+
+check-format:
+	black --check .
+	isort --check .
