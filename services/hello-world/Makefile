@@ -4,7 +4,7 @@ PKG := hello_world
 setup:
 	pip install --editable .[run,test]
 
-build: test-unit
+build:
 	docker build --tag phra/$(SERVICE) .
 
 test-unit:
@@ -19,3 +19,7 @@ run-docker:
 format:
 	black .
 	isort .
+
+check-format:
+	black --check .
+	isort --check .
