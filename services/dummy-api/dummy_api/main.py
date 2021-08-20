@@ -3,11 +3,16 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get("/")
+@app.get("/ready")
 def read_root():
-    return {"Hello": "World"}
+    return "ok"
 
 
-@app.get("/customer/{customer_id}/info")
-def read_item(customer_id: str):
-    return {"customer_id": customer_id}
+@app.get("/health")
+def read_root():
+    return "ok"
+
+
+@app.get("/user/{user_id}/profile")
+def get_user_profile(user_id: str):
+    return {"user_id": user_id}
