@@ -1,0 +1,16 @@
+name: Check
+on: push
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: hello-world Setup
+      run: make setup
+      working-directory: services/hello-world
+    - name: hello-world Run tests
+      run: make test-unit
+      working-directory: services/hello-world
