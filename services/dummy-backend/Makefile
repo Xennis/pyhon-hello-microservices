@@ -1,6 +1,6 @@
-SERVICE := dummy-api
-PKG := dummy_api
-PORT:= 2500
+SERVICE := dummy-backend
+PKG := dummy_backend
+PORT:= 2501
 
 setup:
 	pip install --editable .[run,test]

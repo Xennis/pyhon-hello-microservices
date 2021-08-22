@@ -10,12 +10,6 @@ jobs:
         python-version: 3.9
     - name: Install development dependencies
       run: pip install --requirement requirements.txt
-    - name: uvicorn-gunicorn-fastapi Check format
-      run: make check-format
-      working-directory: infrastructure/docker/uvicorn-gunicorn-fastapi
-    - name: uvicorn-gunicorn-fastapi Docker build
-      run: make build
-      working-directory: infrastructure/docker/uvicorn-gunicorn-fastapi
     - name: dummy-api Setup
       run: make setup
       working-directory: services/dummy-api
@@ -25,6 +19,24 @@ jobs:
     - name: dummy-api Run tests
       run: make test-unit
       working-directory: services/dummy-api
-    - name: dummy-api Docker build
+    #- name: dummy-api Docker build
+    #  run: make build
+    #  working-directory: services/dummy-api
+    - name: dummy-backend Setup
+      run: make setup
+      working-directory: services/dummy-backend
+    - name: dummy-backend Check format
+      run: make check-format
+      working-directory: services/dummy-backend
+    - name: dummy-backend Run tests
+      run: make test-unit
+      working-directory: services/dummy-backend
+    #- name: dummy-backend Docker build
+    #  run: make build
+    #  working-directory: services/dummy-backend
+    - name: uvicorn-gunicorn-fastapi Check format
+      run: make check-format
+      working-directory: infrastructure/docker/uvicorn-gunicorn-fastapi
+    - name: uvicorn-gunicorn-fastapi Docker build
       run: make build
-      working-directory: services/dummy-api
+      working-directory: infrastructure/docker/uvicorn-gunicorn-fastapi
